@@ -5,12 +5,13 @@ interface Props {
   name: string;
   onChangeName : React.ChangeEventHandler<HTMLInputElement>;
   onChangeMessage: React.ChangeEventHandler<HTMLTextAreaElement>;
+  onNewMessage: React.ChangeEventHandler<HTMLFormElement>;
 }
 
-const MessageForm: React.FC<Props> = ({message, name, onChangeName, onChangeMessage}) => {
+const MessageForm: React.FC<Props> = ({message, name, onChangeName, onChangeMessage, onNewMessage}) => {
   return (
     <div className='input-field'>
-      <form className='d-flex align-items-center justify-content-between ms-5 me-5 mb-3 mt-1'>
+      <form className='d-flex align-items-center justify-content-between ms-5 me-5 mb-3 mt-1' onSubmit={onNewMessage}>
         <div className='mb-3 me-3'>
           <label htmlFor='name' className='form-label'>Ваше имя:</label>
           <input type="text" className='form-control' id='name' required value={name} onChange={onChangeName} />
