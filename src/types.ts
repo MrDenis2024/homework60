@@ -1,4 +1,4 @@
-export interface Message {
+export interface MessageInterface {
   id: string,
   datetime: string,
   message: string,
