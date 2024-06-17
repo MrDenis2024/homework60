@@ -1,12 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 import MessageForm from '../../components/MessageForm/MessageForm';
 import {MessageInterface} from '../../types';
-import Message from '../../components/Message/Message';
+import MessageList from '../../components/Message/MessageList';
 
 const Chat = () => {
-  const [messages, setMessages] = useState<MessageInterface[]>([
-    {id: '1', message: 'asdas', author: 'asd', datetime: '2024-06-17T11:37:14.222Z'}
-  ]);
+  const [messages, setMessages] = useState<MessageInterface[]>([]);
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
 
@@ -36,11 +34,7 @@ const Chat = () => {
 
   return (
     <div className='container'>
-      <div className='field border border-secondary p-3 mt-5 field rounded-3'>
-        {messages.map((message) => (
-          <Message key={message.id} message={message} />
-        ))}
-      </div>
+      <MessageList messages={messages}/>
       <MessageForm name={name} onChangeName={changeName} onChangeMessage={changeMessage} message={message} onNewMessage={(event) => sendMessage(event)}/>
     </div>
   );
