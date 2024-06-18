@@ -12,7 +12,7 @@ const Message: React.FC<Props> = ({message}) => {
         messageDate.getDate(),
         messageDate.getMonth() + 1,
         messageDate.getFullYear()
-      ].join('/') + ' ' +
+      ].join('.') + ' ' +
       [messageDate.getHours(),
         messageDate.getMinutes(),
         messageDate.getSeconds()].join(':');
